@@ -1,0 +1,204 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/*
+ * "Confessional Corkboard" design tokens.
+ * Three layers: primitive (raw palette) -> semantic (purpose) -> component (shape/shadow).
+ * No dark-mode toggle: the "stage" (dark) and "paper" (light) surfaces are two
+ * permanent registers that coexist on the same page (hero = stage, rest = paper),
+ * not a user-switchable theme.
+ */
+
+:root {
+  /* ---------- Primitive: raw palette ---------- */
+  --color-paper-50: #ffffff;
+  --color-paper-100: #fdf8f0;
+  --color-paper-200: #f4ead8;
+  --color-ink-900: #18140f;
+  --color-ink-700: #3a342c;
+  --color-ink-400: #8a8275;
+
+  --color-cork-600: #b08655;
+  --color-cork-800: #6e4f2e;
+  --color-cork-950: #241a10;
+
+  --color-confession-100: #fce2de;
+  --color-confession-500: #e63f2e;
+  --color-confession-600: #c22f20;
+
+  --color-sticky-400: #ffcb3d;
+  --color-sticky-600: #cf9a00;
+
+  --color-tape-500: #6e9fb0;
+  --color-tape-700: #4a7686;
+
+  --color-error-600: #b3261e;
+
+  /* ---------- Semantic: purpose aliases ---------- */
+  --background: var(--color-paper-100);
+  --foreground: var(--color-ink-900);
+
+  --card: var(--color-paper-50);
+  --card-foreground: var(--color-ink-900);
+
+  --popover: var(--color-paper-50);
+  --popover-foreground: var(--color-ink-900);
+
+  --primary: var(--color-confession-500);
+  --primary-hover: var(--color-confession-600);
+  --primary-foreground: var(--color-paper-100);
+
+  --secondary: var(--color-sticky-400);
+  --secondary-hover: var(--color-sticky-600);
+  --secondary-foreground: var(--color-ink-900);
+
+  --muted: var(--color-paper-200);
+  --muted-foreground: var(--color-ink-400);
+
+  --accent: var(--color-tape-500);
+  --accent-hover: var(--color-tape-700);
+  --accent-foreground: var(--color-paper-50);
+
+  --destructive: var(--color-error-600);
+  --destructive-foreground: var(--color-paper-100);
+
+  --border: var(--color-ink-900);
+  --input: var(--color-ink-900);
+  --ring: var(--color-tape-500);
+
+  /* Stage surface: the dark corkboard/backdrop register used only by the hero */
+  --surface-stage: var(--color-cork-950);
+  --surface-stage-foreground: var(--color-paper-100);
+  --surface-stage-border: var(--color-cork-600);
+
+  /* ---------- Component: shape + shadow language ---------- */
+  --radius-card: 0px;
+  --radius-badge: 2px;
+  --radius-pill: 999px;
+
+  --border-width-card: 3px;
+  --border-width-hairline: 1px;
+
+  --shadow-offset-card: 4px 4px 0 0 var(--color-ink-900);
+  --shadow-offset-card-hover: 6px 6px 0 0 var(--color-ink-900);
+  --shadow-offset-card-sm: 3px 3px 0 0 var(--color-ink-900);
+
+  --rotate-card-a: -2deg;
+  --rotate-card-b: 2deg;
+
+  --radius: 0px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-surface-stage: var(--surface-stage);
+  --color-surface-stage-foreground: var(--surface-stage-foreground);
+  --color-surface-stage-border: var(--surface-stage-border);
+
+  --color-paper-50: var(--color-paper-50);
+  --color-paper-100: var(--color-paper-100);
+  --color-paper-200: var(--color-paper-200);
+  --color-ink-900: var(--color-ink-900);
+  --color-ink-700: var(--color-ink-700);
+  --color-ink-400: var(--color-ink-400);
+  --color-cork-600: var(--color-cork-600);
+  --color-cork-800: var(--color-cork-800);
+  --color-cork-950: var(--color-cork-950);
+  --color-confession-100: var(--color-confession-100);
+  --color-confession-500: var(--color-confession-500);
+  --color-confession-600: var(--color-confession-600);
+  --color-sticky-400: var(--color-sticky-400);
+  --color-sticky-600: var(--color-sticky-600);
+  --color-tape-500: var(--color-tape-500);
+  --color-tape-700: var(--color-tape-700);
+
+  --font-display: var(--font-display);
+  --font-heading: var(--font-display);
+  --font-body: var(--font-body);
+  --font-marker: var(--font-marker);
+
+  --radius-card: var(--radius-card);
+  --radius-badge: var(--radius-badge);
+  --radius-pill: var(--radius-pill);
+  --radius-sm: var(--radius-card);
+  --radius-md: var(--radius-card);
+  --radius-lg: var(--radius-card);
+  --radius-xl: var(--radius-card);
+
+  --animate-marquee: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-body;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .shadow-card {
+    box-shadow: var(--shadow-offset-card);
+  }
+  .shadow-card-hover {
+    box-shadow: var(--shadow-offset-card-hover);
+  }
+  .shadow-card-sm {
+    box-shadow: var(--shadow-offset-card-sm);
+  }
+  .redacted {
+    background-color: var(--color-ink-900);
+    color: transparent;
+    border-radius: 2px;
+    padding-inline: 0.15em;
+  }
+}

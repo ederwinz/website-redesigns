@@ -1,0 +1,14 @@
+# OS
+.DS_Store
+
+# AI tool configs
+.claude/
+
+# Editor
+.vscode/
+.idea/
+
+# Safety net for any subproject missing its own ignores
+**/node_modules/
+**/.next/
+**/.vercel/
