@@ -139,10 +139,18 @@ export function HeroVideo() {
 
   return (
     <div className="absolute inset-0 overflow-hidden bg-surface-stage">
+      {/*
+        Oversized and anchored to the top edge rather than centered: YouTube's
+        own seek-hint overlay (prev/pause/next) renders at this element's
+        vertical center regardless of controls=0. Pushing that center point
+        down past the visible area (instead of centering it right behind our
+        heading) crops the overlay out entirely via the parent's
+        overflow-hidden, while still fully covering the container.
+      */}
       <div
         ref={containerRef}
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 h-[100vh] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2"
+        className="pointer-events-none absolute top-0 left-1/2 h-[220vh] min-h-[220%] w-[391vh] min-w-[220%] -translate-x-1/2"
       />
 
       {/* Covers the player's own load/thumbnail/play-button flash until onStateChange confirms real playback has begun. */}
