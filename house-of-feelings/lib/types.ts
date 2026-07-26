@@ -21,7 +21,8 @@ export interface VideoItem {
 export interface Post {
   id: string;
   title: string;
-  excerpt: string;
+  imageUrl: string;
+  duration: string;
   likeCount: number;
   commentCount: number;
   locked: boolean;

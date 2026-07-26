@@ -68,56 +68,32 @@ export const videos: VideoItem[] = [
 export const posts: Post[] = [
   {
     id: "p1",
-    title: "what he said in the group chat after the reunion",
-    excerpt:
-      "so we all agreed to never speak of this again and then someone screenshotted it anyway...",
-    likeCount: 214,
-    commentCount: 38,
+    title: "Jay's Full Reunion Confessional",
+    imageUrl:
+      "https://imgproxy.fourthwall.dev/gecaRAhX6seN2TPbYPRUZExwFm92M2FKq2qGK8OqhZE/rs:fill:422:237/sm:1/enc/ay2zcHdJAhv6xTxd/PKqDQnXz7kVAusM0/k-9kgdl3TaI3HeFy/coASZRqJM2Lr3wM5/WVYRq_ITGFCkTCFg/kQmNtaHHa6T7Hwgc/I0GcoWVUiR-qmZ2a/IHO7MevByYMoxl9X/cI-GXKjF1JuvEOKQ/wfvIiQVS-E0F4znl/mKT-ooFX9zA.jpg",
+    duration: "33:39",
+    likeCount: 3,
+    commentCount: 6,
     locked: true,
   },
   {
     id: "p2",
-    title: "the Jenga round nobody wanted to finish",
-    excerpt:
-      "by round three it stopped being a game and started being couples therapy live on camera",
-    likeCount: 176,
-    commentCount: 24,
+    title: "Kimmi's Full Reunion Confessional",
+    imageUrl:
+      "https://imgproxy.fourthwall.dev/zXCNit8NnnXFYMgmUgkqAl3_ZRtAxc0kKfEcONd6uaA/rs:fill:422:237/sm:1/enc/PfKztV8HqcVg54IU/Chq3q64F54FLSY5t/tUz5sk55clEkVWbr/Ze2hWtN5DrwVCdpk/pPEKFnxVboJTbcxJ/yAN6x-V-Tj5Cfn0m/vmlu0zVz3etUeQNt/08rwNE_FV71lZoLp/9dPT0qdPcs80VM3i/QruR6_byKHFh4PyJ/InZJ7n4hlaY.jpg",
+    duration: "31:51",
+    likeCount: 6,
+    commentCount: 4,
     locked: true,
   },
   {
     id: "p3",
-    title: "ranking each other, unedited",
-    excerpt:
-      "the extended cut has forty extra seconds of silence that the episode cut for a reason",
-    likeCount: 302,
-    commentCount: 51,
-    locked: true,
-  },
-  {
-    id: "p4",
-    title: "behind the scenes: the trivia buzzer incident",
-    excerpt:
-      "someone rigged the buzzer and we have iPhone footage proving exactly who",
-    likeCount: 145,
-    commentCount: 19,
-    locked: true,
-  },
-  {
-    id: "p5",
-    title: "the dating advice segment that went off the rails",
-    excerpt:
-      "started as advice, ended as a full breakdown of everyone's situationship history",
-    likeCount: 261,
-    commentCount: 44,
-    locked: true,
-  },
-  {
-    id: "p6",
-    title: "reading the comments live",
-    excerpt:
-      "we read the meanest comment out loud and someone had to leave the room",
-    likeCount: 198,
-    commentCount: 33,
+    title: "Mack's Full Reunion Confessional",
+    imageUrl:
+      "https://imgproxy.fourthwall.dev/KbPp2bYomG4yYx8WN1sLIPEryk-eC-FtsqJLBQVZWx8/rs:fill:422:237/sm:1/enc/ng503HEJNrjGSv3p/YYeieWV5CovaxPM3/sTaRaPrF4ISlpCtO/I2iirZ9ILooLKaL-/-XV-rAuPFyWkeGbV/gm6LjH4uPrwyZLSS/P8vT77gKapPrGrde/hkLDcx1HSDvU04KK/nDikPSRrDE8R8Bif/7nOMncADJw8gcT-N/17JjR1sBYUE.jpg",
+    duration: "43:04",
+    likeCount: 10,
+    commentCount: 1,
     locked: true,
   },
 ];
