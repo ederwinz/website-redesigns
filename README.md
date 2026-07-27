@@ -17,4 +17,15 @@ Redesign of [houseoffeelings.show](https://houseoffeelings.show), a membership/s
 
 ---
 
+### [Duolingo — The Athenaeum](./duolingo)
+
+Redesign of [duolingo.com](https://www.duolingo.com), the language-learning app. Kept the original homepage's bones (hero, course picker, value pillars, streak/gamification, pricing, testimonials, footer) and inverted the aesthetic: Duolingo's real public persona is unhinged, meme-heavy social marketing (Duo the owl's viral TikTok antics), so "The Athenaeum" plays it dead straight instead — Duo reframed as the literal Owl of Athena, a premium academic-society register in laurel green and bronze, Roman lapidary type, and manuscript-inspired shapes, with real Duolingo pricing/course data and a live translation exercise as the signature interactive piece.
+
+**Live:** [duolingo-jet-ten.vercel.app](https://duolingo-jet-ten.vercel.app)
+**Stack:** Next.js, TypeScript, Tailwind CSS, shadcn/ui, Motion
+
+[![Duolingo — The Athenaeum screenshot](./screenshots/duolingo.jpg)](https://duolingo-jet-ten.vercel.app)
+
+---
+
 More redesigns coming soon.

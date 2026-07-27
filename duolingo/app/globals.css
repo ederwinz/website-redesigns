@@ -1,0 +1,220 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/*
+ * "The Athenaeum" design tokens.
+ * Three layers: primitive (raw palette) -> semantic (purpose) -> component (shape/shadow).
+ * No dark-mode toggle: "stage" (dark lecture-hall) and "paper" (light marble) surfaces
+ * are two permanent registers that coexist on the same page (hero + Patronage = stage,
+ * rest = paper), not a user-switchable theme.
+ */
+
+:root {
+  /* ---------- Primitive: raw palette ---------- */
+  --color-marble-50: #f5f4ef;
+  --color-marble-100: #ebe8de;
+  --color-marble-300: #d3cebc;
+
+  --color-ink-950: #12160f;
+  --color-ink-800: #262b1f;
+  --color-ink-500: #5c6350;
+
+  --color-laurel-400: #6e8f5e;
+  --color-laurel-600: #2f6b3c;
+  --color-laurel-700: #234f2c;
+  --color-laurel-900: #142b1a;
+
+  --color-verdigris-400: #6fa88c;
+  --color-verdigris-600: #3f7d65;
+
+  --color-bronze-400: #b58a4a;
+  --color-bronze-600: #8c6a34;
+
+  --color-oxblood-600: #8a2f22;
+
+  /* ---------- Semantic: purpose aliases ---------- */
+  --background: var(--color-marble-50);
+  --foreground: var(--color-ink-950);
+
+  --card: var(--color-marble-100);
+  --card-foreground: var(--color-ink-950);
+
+  --popover: var(--color-marble-100);
+  --popover-foreground: var(--color-ink-950);
+
+  --primary: var(--color-laurel-600);
+  --primary-hover: var(--color-laurel-700);
+  --primary-foreground: var(--color-marble-50);
+
+  --secondary: var(--color-bronze-400);
+  --secondary-hover: var(--color-bronze-600);
+  --secondary-foreground: var(--color-ink-950);
+
+  --muted: var(--color-marble-300);
+  --muted-foreground: var(--color-ink-500);
+
+  --accent: var(--color-verdigris-600);
+  --accent-hover: var(--color-verdigris-400);
+  --accent-foreground: var(--color-marble-50);
+
+  --destructive: var(--color-oxblood-600);
+  --destructive-foreground: var(--color-marble-50);
+
+  --border: var(--color-ink-950);
+  --input: var(--color-ink-950);
+  --ring: var(--color-verdigris-400);
+
+  /* Stage surface: the permanent dark "lecture hall" register used by the hero + Patronage */
+  --surface-stage: var(--color-laurel-900);
+  --surface-stage-foreground: var(--color-marble-50);
+  --surface-stage-border: var(--color-bronze-400);
+
+  /* ---------- Component: shape + shadow language ---------- */
+  --radius-tablet: 2px;
+  --radius-medallion: 50%;
+  --radius-pill: 999px;
+
+  --border-width-card: 1px;
+  --border-width-hairline: 1px;
+
+  --shadow-relief-sm: 0 1px 2px rgba(18, 22, 15, 0.08);
+  --shadow-relief-md: 0 12px 32px -12px rgba(18, 22, 15, 0.35);
+  --shadow-relief-lg: 0 24px 48px -16px rgba(18, 22, 15, 0.4);
+
+  --radius: 2px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-surface-stage: var(--surface-stage);
+  --color-surface-stage-foreground: var(--surface-stage-foreground);
+  --color-surface-stage-border: var(--surface-stage-border);
+
+  --color-marble-50: var(--color-marble-50);
+  --color-marble-100: var(--color-marble-100);
+  --color-marble-300: var(--color-marble-300);
+  --color-ink-950: var(--color-ink-950);
+  --color-ink-800: var(--color-ink-800);
+  --color-ink-500: var(--color-ink-500);
+  --color-laurel-400: var(--color-laurel-400);
+  --color-laurel-600: var(--color-laurel-600);
+  --color-laurel-700: var(--color-laurel-700);
+  --color-laurel-900: var(--color-laurel-900);
+  --color-verdigris-400: var(--color-verdigris-400);
+  --color-verdigris-600: var(--color-verdigris-600);
+  --color-bronze-400: var(--color-bronze-400);
+  --color-bronze-600: var(--color-bronze-600);
+  --color-oxblood-600: var(--color-oxblood-600);
+
+  --font-display: var(--font-display);
+  --font-heading: var(--font-display);
+  --font-body: var(--font-body);
+  --font-label: var(--font-label);
+
+  --radius-tablet: var(--radius-tablet);
+  --radius-medallion: var(--radius-medallion);
+  --radius-pill: var(--radius-pill);
+  --radius-sm: var(--radius-tablet);
+  --radius-md: var(--radius-tablet);
+  --radius-lg: var(--radius-tablet);
+  --radius-xl: var(--radius-tablet);
+
+  --animate-meander: meander 3s linear infinite;
+}
+
+@keyframes meander {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 32px 0;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-body;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display uppercase tracking-wide;
+  }
+}
+
+@layer utilities {
+  .shadow-relief-sm {
+    box-shadow: var(--shadow-relief-sm);
+  }
+  .shadow-relief-md {
+    box-shadow: var(--shadow-relief-md);
+  }
+  .shadow-relief-lg {
+    box-shadow: var(--shadow-relief-lg);
+  }
+
+  /* Manuscript "dog-eared corner" shape — the inversion of Duolingo's
+     asymmetric speech-bubble radius (50% 50% 50% 16%). */
+  .marginalia-notch {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 100%,
+      12px 100%,
+      0 calc(100% - 12px)
+    );
+  }
+
+  /* Greek-key rule, used sparingly as a section divider. */
+  .rule-meander {
+    height: 8px;
+    background-image: repeating-linear-gradient(
+      90deg,
+      var(--color-bronze-400) 0 8px,
+      transparent 8px 16px,
+      var(--color-bronze-400) 16px 24px,
+      transparent 24px 32px
+    );
+  }
+
+  .font-label {
+    letter-spacing: 0.12em;
+  }
+}
