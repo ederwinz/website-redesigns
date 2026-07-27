@@ -12,6 +12,25 @@ The root `README.md` is a gallery: intro + one entry per project (live link + sc
 
 Each project keeps the *original* site's layout/structure/functionality intent but rebuilds the visual aesthetic from scratch (typography, color, motion, personality) — the goal is never to clone the source site's look, only its bones.
 
+## Purpose
+
+This is a dual-purpose portfolio: a CS portfolio piece (real, deployed, code-reviewable work for recruiters) and a content series (redesign walkthroughs meant to be posted as Instagram/TikTok content). Both purposes should stay satisfiable at once — don't cut corners that would only pass muster as a portfolio piece (e.g. fabricated content, a broken deploy) or that would only work as content (a mockup with no real code behind it).
+
+Each project should be anchored to a specific **angle**: a one-line "what if this brand's public persona were inverted/exaggerated" premise, chosen deliberately per brand rather than defaulting to "make it look nicer." For House of Feelings the angle was implicit in the source material (chaotic reality-dating-show energy → "Confessional Corkboard" diary-room aesthetic). For the next project, Duolingo, the angle is: the brand's actual public persona is unhinged/chaotic social-media marketing (Duo the owl's viral antics) — invert that into a redesign that plays it as a very polished, academic, almost philosophical marketing voice, in full deadpan contrast to how the brand actually behaves online. State the angle explicitly up front for each new project before design work starts.
+
+## Redesign process (applies to every new project)
+
+Don't jump straight to component code. The workflow that's worked so far:
+
+1. **Pull the real source site's current design tokens and structure first** (palette, type, radius, the specific interactive mechanic worth keeping — e.g. House of Feelings' autoplay hero video) rather than guessing at what it currently looks like. If the source is client-rendered (React/Vue hydration), a plain `curl`/`WebFetch` will only see a loading skeleton — use Playwright (`page.evaluate` after `waitUntil: "networkidle"`) against the live DOM.
+2. **Decide what structure to keep vs. what aesthetic to replace** with the user before writing code — same section order/layout/functionality intent, new typography/color/motion/personality. Get explicit sign-off on the angle (see Purpose above) and on which parts of the stack to use (Next.js/TS/Tailwind/shadcn has been the default so far).
+3. **Design the aesthetic using the design skills as actual tools, not decoration**: `ui-ux-pro-max` for concrete style/palette/font-pairing directions, `frontend-design` for a distinctiveness audit (does this direction still read as a generic AI-template default — dark-SaaS indigo/coral, cream-serif-terracotta, neo-brutalist Dribbble-default — or is it actually specific to this brand's angle?), `ui-styling` for accessible interaction patterns (shadcn primitives, not bespoke toggles), `design-system` to lock the chosen palette/type into a proper three-layer token system (primitive → semantic → component) in Tailwind v4's CSS-first `@theme`, never raw hex in components. Expect multiple refinement passes before locking a direction in — that's normal, not a sign something's wrong.
+4. **Source real content, not placeholder copy** — see Content-sourcing convention below.
+5. **Verify visually, not just by type-checking.** Run the dev server and use Playwright to screenshot the real rendered page at 375px/768px/1440px, plus any interactive states (dropdowns open, mobile nav sheet open, hero video mid-playback) — don't declare a visual fix done from reading the code alone. `npx tsc --noEmit` and `npm run lint` catch correctness/a11y issues but not layout bugs, contrast, or a video overlay bleeding through.
+6. **Deploy to Vercel and add the project to the root README gallery + screenshots/**, per Repo structure above.
+
+Iterating closely on small visual details (e.g. a logo's exact tail shape/outline/size across several rounds) is expected and welcome — don't treat "good enough" as good enough on anything that's meant to be a signature/brand element.
+
 ## Commands
 
 All commands run from inside the project folder, e.g. `cd house-of-feelings`:
