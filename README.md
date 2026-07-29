@@ -28,4 +28,15 @@ Redesign of [duolingo.com](https://www.duolingo.com), the language-learning app.
 
 ---
 
+### [Henry Pan — Marginalia](./henryproject)
+
+Redesign of [henrybpan.com](http://henrybpan.com), a friend's personal site. Kept the original structure (home, about, now, library, ideas, quotes, writings, contact, newsletter) and every piece of his real writing verbatim, rebuilt around a "commonplace book" concept — the centuries-old genre of a personal notebook for collecting quotes and excerpts, which is literally what his Library/Quotes/Ideas pages already do. A warm, restrained scholarly register (Bodoni Moda display type, hairline borders, relief shadows) replaces the source site's plain minimal-blog look, with a dark inset-plate treatment reserved for the Quotes page.
+
+**Live:** [henryproject.vercel.app](https://henryproject.vercel.app)
+**Stack:** Next.js, TypeScript, Tailwind CSS, shadcn/ui, Motion
+
+[![Henry Pan — Marginalia screenshot](./screenshots/henryproject.jpg)](https://henryproject.vercel.app)
+
+---
+
 More redesigns coming soon.
