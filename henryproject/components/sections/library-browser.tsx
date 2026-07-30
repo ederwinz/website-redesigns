@@ -5,7 +5,6 @@ import { StarIcon } from "lucide-react";
 
 import type { LibraryItem, LibrarySection, LibraryStatus } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
 
 type Filter = "all" | "lindy" | LibraryStatus;
 
@@ -36,12 +35,12 @@ const statusLabel: Record<LibraryStatus, string> = {
   watched: "Watched",
 };
 
-const statusVariant: Record<LibraryStatus, "default" | "secondary" | "outline"> = {
-  reading: "default",
-  "to-read": "secondary",
-  read: "outline",
-  "to-watch": "secondary",
-  watched: "outline",
+const statusDotColor: Record<LibraryStatus, string> = {
+  reading: "bg-primary",
+  "to-read": "bg-secondary",
+  read: "bg-muted-foreground",
+  "to-watch": "bg-accent",
+  watched: "bg-muted-foreground",
 };
 
 const statusOrder: Record<LibraryStatus, number> = {
@@ -117,7 +116,7 @@ export function LibraryBrowser({ sections }: { sections: LibrarySection[] }) {
         <select
           value={sort}
           onChange={(event) => setSort(event.target.value as Sort)}
-          className="border border-border bg-background px-2 py-1 text-sm"
+          className="rounded-panel border border-border bg-background px-2 py-1 text-sm"
         >
           {sortOptions.map((option) => (
             <option key={option.value} value={option.value}>
@@ -137,41 +136,53 @@ export function LibraryBrowser({ sections }: { sections: LibrarySection[] }) {
               {section.items.map((item) => (
                 <li
                   key={item.title}
-                  className="flex flex-wrap items-center gap-x-3 gap-y-1 py-3"
+                  className="grid grid-cols-1 items-start gap-x-4 gap-y-1.5 py-3 sm:grid-cols-[minmax(0,1fr)_6.5rem_4.5rem] sm:items-center"
                 >
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-medium text-foreground underline decoration-transparent underline-offset-2 hover:decoration-foreground"
-                    >
-                      {item.title}
-                    </a>
-                  ) : (
-                    <span className="font-medium text-foreground">
-                      {item.title}
-                    </span>
-                  )}
-                  {item.author && (
-                    <span className="text-sm text-muted-foreground">
-                      {item.author}
-                    </span>
-                  )}
-                  {item.status && (
-                    <Badge variant={statusVariant[item.status]}>
-                      {statusLabel[item.status]}
-                    </Badge>
-                  )}
-                  {item.lindy && (
-                    <Badge
-                      variant="secondary"
-                      className="gap-1 bg-bronze-400 text-ink-950"
-                    >
-                      <StarIcon className="size-3 fill-current" />
-                      Lindy
-                    </Badge>
-                  )}
+                  <div className="min-w-0 sm:truncate">
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-foreground underline decoration-transparent underline-offset-2 hover:decoration-foreground"
+                      >
+                        {item.title}
+                      </a>
+                    ) : (
+                      <span className="font-medium text-foreground">
+                        {item.title}
+                      </span>
+                    )}
+                    {item.author && (
+                      <span className="ml-2 text-sm text-muted-foreground">
+                        {item.author}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="flex items-center">
+                    {item.status && (
+                      <span className="inline-flex items-center gap-1.5 font-label text-[11px] uppercase text-muted-foreground">
+                        <span
+                          className={cn(
+                            "size-1.5 shrink-0 rounded-full",
+                            statusDotColor[item.status]
+                          )}
+                          aria-hidden
+                        />
+                        {statusLabel[item.status]}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="flex items-center">
+                    {item.lindy && (
+                      <span className="inline-flex items-center gap-1 font-label text-[11px] uppercase text-bronze-600">
+                        <StarIcon className="size-3 shrink-0 fill-current" />
+                        Lindy
+                      </span>
+                    )}
+                  </div>
                 </li>
               ))}
             </ul>

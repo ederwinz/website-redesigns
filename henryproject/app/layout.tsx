@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { Bodoni_Moda, Literata, Fragment_Mono } from "next/font/google";
+import { Schibsted_Grotesk, Work_Sans, Fragment_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import "./globals.css";
 
-const displayFont = Bodoni_Moda({
+const displayFont = Schibsted_Grotesk({
   variable: "--font-display",
   weight: ["500", "600", "700"],
   subsets: ["latin"],
 });
 
-const bodyFont = Literata({
+const bodyFont = Work_Sans({
   variable: "--font-body",
   style: ["normal", "italic"],
+  weight: ["300", "400", "500"],
   subsets: ["latin"],
 });
 
